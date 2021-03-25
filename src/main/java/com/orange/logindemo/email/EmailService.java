@@ -28,23 +28,12 @@ public class EmailService implements EmailSender {
             helper.setText(email, true);
             helper.setTo(to);
             helper.setSubject("Confirm Your Email");
-            helper.setFrom("orangejuicepro@163.com");
+            helper.setFrom("");
             mailSender.send(mimeMessage);
             System.out.println("the email is send");
         } catch (MessagingException e) {
             LOGGER.error("fail to send email", e);
             throw new IllegalStateException("fail to send email");
         }
-    }
-
-    @Async
-    public void testAsync() {
-        try {
-            Thread.sleep(10000);
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new IllegalStateException(e);
-        }
-
     }
 }
